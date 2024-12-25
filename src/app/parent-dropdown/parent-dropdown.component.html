@@ -1,0 +1,11 @@
+<form [formGroup]="formGroup">
+  <select formControlName="countryControl" (change)="onCountryChange()">
+    <option value="">Select Country</option>
+    <option *ngFor="let country of countries" [value]="country">
+      {{ country }}
+    </option>
+  </select>
+</form>
+<app-child-dropdown
+  [selectedCountry]="$any(formGroup.get('countryControl')).value"
+></app-child-dropdown>
